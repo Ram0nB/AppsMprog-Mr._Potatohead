@@ -14,6 +14,50 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        ImageView arms = findViewById(R.id.arms);
+        ImageView ears = findViewById(R.id.ears);
+        ImageView eyebrows = findViewById(R.id.eyebrows);
+        ImageView eyes = findViewById(R.id.eyes);
+        ImageView glasses = findViewById(R.id.glasses);
+        ImageView hat = findViewById(R.id.hat);
+        ImageView mouth = findViewById(R.id.mouth);
+        ImageView mustache = findViewById(R.id.mustache);
+        ImageView nose = findViewById(R.id.nose);
+        ImageView shoes = findViewById(R.id.shoes);
+
+        outState.putInt("arms", arms.getVisibility());
+        outState.putInt("ears", ears.getVisibility());
+        outState.putInt("eyebrows", eyebrows.getVisibility());
+        outState.putInt("eyes", eyes.getVisibility());
+        outState.putInt("glasses", glasses.getVisibility());
+        outState.putInt("hat", hat.getVisibility());
+        outState.putInt("mouth", mouth.getVisibility());
+        outState.putInt("mustache", mustache.getVisibility());
+        outState.putInt("nose", nose.getVisibility());
+        outState.putInt("shoes", shoes.getVisibility());
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        findViewById(R.id.arms).setVisibility(savedInstanceState.getInt("arms"));
+        findViewById(R.id.ears).setVisibility(savedInstanceState.getInt("ears"));
+        findViewById(R.id.eyebrows).setVisibility(savedInstanceState.getInt("eyebrows"));
+        findViewById(R.id.eyes).setVisibility(savedInstanceState.getInt("eyes"));
+        findViewById(R.id.glasses).setVisibility(savedInstanceState.getInt("glasses"));
+        findViewById(R.id.hat).setVisibility(savedInstanceState.getInt("hat"));
+        findViewById(R.id.mouth).setVisibility(savedInstanceState.getInt("mouth"));
+        findViewById(R.id.mustache).setVisibility(savedInstanceState.getInt("mustache"));
+        findViewById(R.id.nose).setVisibility(savedInstanceState.getInt("nose"));
+        findViewById(R.id.shoes).setVisibility(savedInstanceState.getInt("shoes"));
+
+    }
 
     public void checkClicked(View v){
         switch (v.getId()){
